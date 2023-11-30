@@ -30,6 +30,7 @@ public class CategoryServiceImpl implements ICategoryService {
         return categoryRepository.findById(id)
                 .map(c ->{
                     c.setName(category.getName());
+                    c.setLevel(category.getLevel());
                     return categoryRepository.save(c);
                 }).orElseThrow(() -> new RuntimeException("category not found!"))
                 ;
